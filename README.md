@@ -7,9 +7,8 @@ Goal: given N participants and M tables for a networking events, folks are evenl
 ## Setup Environment
 
 ```bash
-conda create -n apoc python=3.10
+conda create -f environment.yml
 conda activate apoc
-conda install pandas numpy matplotlib openpyxl tqdm weasyprint
 ```
 
 ## Usage
@@ -27,10 +26,10 @@ for m in $(seq 18 27);do python assign_table.py -m $m <input.xlsx> >m$m.txt; don
 ```
 
 ```bash
-python print_table.py <input.xlsx>
+python print_table.py <input>
 ```
 
-The `input.xlsx` here is the output from `assing_table.py` containing a field called "Table ID". To combine all pdf tags into one for printing, one can use external tools like `pdftk`:
+The `input` here is either the `xlsx` or `txt` output from `assing_table.py` containing a field called "Table ID". To combine all pdf tags into one for printing, one can use external tools like `pdftk`:
 
 ```bash
 pdftk table_*.pdf cat output combined_table_tags.pdf
