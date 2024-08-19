@@ -9,13 +9,13 @@ Goal: given N participants and M tables for a networking events, folks are evenl
 ```bash
 conda create -n apoc python=3.10
 conda activate apoc
-conda install pandas numpy matplotlib openpyxl tqdm
+conda install pandas numpy matplotlib openpyxl tqdm weasyprint
 ```
 
 ## Usage
 
 ```bash
-python main.py -m <num-of-tables> <input.xlsx>
+python assign_table.py -m <num-of-tables> <input.xlsx>
 ```
 
 An output `xlsx` file will be produced to map individuals to a table along with the primary topic of the table.
@@ -26,6 +26,15 @@ To run this code through multiple table options:
 for m in $(seq 18 27);do python assign_table.py -m $m <input.xlsx> >m$m.txt; done
 ```
 
+```bash
+python print_table.py <input.xlsx>
+```
+
+The `input.xlsx` here is the output from `assing_table.py` containing a field called "Table ID". To combine all pdf tags into one for printing, one can use external tools like `pdftk`:
+
+```bash
+pdftk table_*.pdf cat output combined_table_tags.pdf
+```
 
 ## Some Details.
 
