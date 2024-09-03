@@ -5,7 +5,6 @@
     font-family: Arial;
     border-collapse: collapse; 
     border: 4px solid silver;
-
 }
 
 .mystyle td, th {
@@ -22,6 +21,31 @@
 }
 
 .center {
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.large-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    font-size: 250pt; /* 50% of the viewport height */
+    transform: translate(-50%, -50%) rotate(180deg);
+    text-align: center;
+    font-weight: bold; /* Optional: makes the text bold */
+    color: #333; /* Sets the text color */
+    width: 100%;
+}
+
+.horizontal-dotted-line {
+    position: absolute; /* Positioning relative to the nearest positioned ancestor */
+    top: 50%;           /* Center the line vertically in the middle of the page */
+    transform: translateY(-50%); /* Ensure it's perfectly centered vertically */
+    width: 100%;        /* Full width of the viewport */
+    height: 2px;        /* Height of the dotted line */
+    background: transparent;
+    border-top: 2px dotted black; /* Create the dotted line effect */
+}
+

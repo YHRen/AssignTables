@@ -36,16 +36,15 @@ if __name__ == "__main__":
         pdf_filepath = os.path.join(f"table_{tid:02d}.pdf")
         idx = df["Table ID"] == tid
         demo_df = df[idx][["Name", "Primary Organization"]]
-        table=demo_df.to_html(classes='mystyle', index=False, justify='left')
+        table = demo_df.to_html(classes='mystyle', index=False, justify='left')
         table = table.replace("dataframe", "dataframe center")
         html_string = f'''
         <html>
           <head><title>HTML Pandas Dataframe with CSS</title></head>
           <link rel="stylesheet" type="text/css" href="df_style.css"/>
           <body>
-              <center>
-            <h2> Table {tid:02d} </h2>
-              </center>
+            <div class="large-text"> {tid:02d} </div>
+            <div class="horizontal-dotted-line"></div>
             {table}
           </body>
         </html>
